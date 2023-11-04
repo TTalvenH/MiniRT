@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <camera/camera.h>
-
+#include <stdio.h>
 static void	update_camera_rot(t_app *app, t_camera *camera)
 {
 	float		sens;
@@ -19,7 +19,8 @@ static void	update_camera_rot(t_app *app, t_camera *camera)
 	float		pitch_new;
 	float		pitch_limit;
 
-	sens = 0.03;
+	sens = 1.5;
+
 	input.x = app->input.mouse_movement.x * sens * app->window->delta_time;
 	input.y = app->input.mouse_movement.y * sens * app->window->delta_time;
 	pitch_new = camera->pitch + input.y;

@@ -35,15 +35,18 @@ static void	key_hook(mlx_key_data_t data, void *param)
 		i->ctrl = (data.action == MLX_REPEAT) || (data.action == MLX_PRESS);
 }
 
+
+
 static void	cursor_hook(double x, double y, void *param)
 {
 	t_input *const	input = param;
 	const t_float2	new_pos = {x, y};
-
 	input->mouse_movement = ft_float2_sub(input->mouse_position, new_pos);
 	input->mouse_position = new_pos;
+	printf("%f, %f\n", input->mouse_movement.x, input->mouse_movement.y);
 }
 
+		#include <stdio.h>
 static void	mouse_hook(
 	mouse_key_t button,
 	action_t action,
@@ -54,8 +57,10 @@ static void	mouse_hook(
 
 	(void)mods;
 	if (button == MLX_MOUSE_BUTTON_LEFT)
+	{
 		input->left_button = (action == MLX_PRESS);
-	else if (button == MLX_MOUSE_BUTTON_RIGHT)
+	}
+	if (button == MLX_MOUSE_BUTTON_RIGHT)
 		input->right_button = (action == MLX_PRESS);
 }
 

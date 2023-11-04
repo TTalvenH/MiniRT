@@ -65,7 +65,7 @@ void	update_camera(t_app *app, t_camera *camera, t_float3 *cam_pos)
 {
 	if (app->input.left_button || app->input.right_button)
 	{
-		mlx_set_cursor_mode(app->window, MLX_MOUSE_DISABLED);
+		mlx_set_cursor_mode(app->window, MLX_MOUSE_HIDDEN);
 	}
 	else
 	{
